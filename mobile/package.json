@@ -1,0 +1,50 @@
+{
+  "name": "mobile",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "dependencies": {
+    "@expo/metro-runtime": "~58.0.17",
+    "expo": "~58.0.24",
+    "expo-constants": "~58.0.16",
+    "expo-linking": "~58.0.17",
+    "expo-router": "~58.0.31",
+    "expo-status-bar": "~58.0.5",
+    "expo-symbols": "~58.0.5",
+    "openapi-fetch": "^0.17.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-safe-area-context": "~5.11.1",
+    "react-native-screens": "~4.30.1"
+  },
+  "devDependencies": {
+    "@types/react": "~19.3.0",
+    "eslint": "^9.39.2",
+    "eslint-config-expo": "^58.0.4",
+    "openapi-typescript": "^7.13.0",
+    "prettier": "^3.10.1",
+    "typescript": "~5.9.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "typecheck": "tsc --noEmit",
+    "generate-api": "openapi-typescript ../backend/openapi.json -o src/api/schema.d.ts",
+    "lint": "eslint app src/api/client.ts",
+    "format:check": "prettier --check app src/api/client.ts eslint.config.js"
+  },
+  "private": true,
+  "overrides": {
+    "@expo/fingerprint": {
+      "minimatch": "11.0.1"
+    },
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.1"
+    },
+    "@redocly/openapi-core": {
+      "minimatch": "11.0.1"
+    }
+  }
+}
