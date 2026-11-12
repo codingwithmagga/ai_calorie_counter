@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r backend/requirements-dev.txt
+      - run: ruff check . && ruff format --check . && pytest
+        working-directory: backend
+  mobile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+      - run: npm ci
+        working-directory: mobile
+      - run: npm run generate-api && git diff --exit-code -- src/api/schema.d.ts
+        working-directory: mobile
+      - run: npm run typecheck
+        working-directory: mobile
+      - run: npm run lint && npm run format:check
+        working-directory: mobile
+      - run: npx expo export --platform android
+        working-directory: mobile
