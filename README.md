@@ -1,6 +1,6 @@
 # NutriLog
 
-NutriLog is a mobile-first calorie and nutrition tracker for individual accounts. This repository currently contains a Phase 0 foundation, **not** the MVP. See the [project specification](docs/PROJECT_SPEC.md) for scope, architecture, roadmap and open decisions.
+NutriLog is a mobile-first calorie and nutrition tracker for individual accounts. This repository currently contains a Phase 0 foundation, **not** the MVP. See the [architecture overview](docs/architecture.md) for implemented and planned boundaries, and the [project specification](docs/PROJECT_SPEC.md) for scope, roadmap and open decisions.
 
 ## Prerequisites
 
