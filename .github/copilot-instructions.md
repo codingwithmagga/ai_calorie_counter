@@ -65,5 +65,5 @@
   `git push --set-upstream origin <branch-name>`), never to `origin/main`.
   Prepare a pull request; do not merge locally or push commits directly to
   `main`. The repository owner merges through GitHub after checks pass.
-- CI currently runs on both pushes and pull requests. Run relevant checks
-  locally and do not assume a pull request alone guarantees they pass.
+- CI runs on pull requests, not standalone pushes. Run relevant checks locally
+  and do not assume a pull request alone guarantees they pass.
